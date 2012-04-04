@@ -1,0 +1,113 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2012 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[11pt,letterpaper,sans]{moderncv}   
+% possible options include font size ('10pt', '11pt' and '12pt'), 
+%                          paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and 
+%                          font family ('sans' and 'roman')
+
+\renewcommand{\labelitemi}{$\star$}
+
+\def\Resume{{R\'{e}sum\'{e}}}
+
+% moderncv themes
+\moderncvstyle{classic} % casual (default), classic, oldstyle, banking
+\moderncvcolor{blue}
+%\renewcommand{\familydefault}{\sfdefault}    % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc} 
+
+% adjust the page margins
+\usepackage[scale=0.85]{geometry}
+\setlength{\hintscolumnwidth}{2.5cm}           % if you want to change the width of the column with the dates
+%\setlength{\maketitlenamewidth}{10cm}        % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+%\usepackage{helvet}
+\usepackage{mathpazo}
+\renewcommand{\sfdefault}{ppl}
+
+% personal data
+\firstname{Martin}
+\familyname{Walsh}
+\title{Linux System Administrator}
+\address{~}{Evanston, IL 60202}
+\email{mwalsh@mwalsh.org}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Objective}
+
+Seeking a challenging, and multifaceted, system administration position requiring the creative application of open source technology.
+
+\section{Professional Experience}
+
+\cventry{2005--Present}{System Administrator}{Parity Systems}{Evanston}{Illinois}{Responsible for the installation, maintenance and documentation of all hardware and network services for use by internal staff and clients. Closely supported the development efforts of all web projects; configuring, deploying, and securing hosting environments/web stack.\newline%
+\newline{}Notable achievements:%:
+\begin{itemize}%
+\item Implemented a comprehensive network monitoring and performance graphing solution (nagios, Python/Jython, Java, rrdtool).
+  \begin{itemize}%
+  \item Programmed more than 20 custom checks for unusual hardware and services.
+  \item Created a utility framework for rapid development of new service checks.
+  \end{itemize}
+\item Developed a 1-wire based server room, climate sensor network and monitoring solution for less than \$100 (owfs, nagios, Python).
+\item Evaluated several free and/or open source virtualization management technologies (VMware-server, ESXi, KVM/libvirt, oVirt, ganeti, Proxmox)
+\item Assembled a Debian-based USB/LiveDVD disaster recovery environment (dnsmasq, pxe, clonezilla, dokuwiki, subversion, puppet).
+\item Built an OpenOffice.org/LibreOffice headless Live CD-ROM image to provide scalable ODT to PDF conversion services to internally hosted Java web applications (BartPE, LibreOffice, OOoServer, KVM/Proxmox).\newline%
+\end{itemize}}
+
+\cventry{2000--2005}{IT Manager}{RS Industrial}{Buford}{Georgia}{Provided corporate leadership and manpower for all IT initiatives.\newline{}%
+\newline{}Notable achievements:%:
+\begin{itemize}%
+\item Supervised the development of, both industrial and retail, e-commerce websites (Java, Apache Tomcat, Python, Zope).
+  \begin{itemize}%
+  \item Contributed Java code to integrate with credit card, payment gateway service.
+  \item Developed a custom Zope "Product" to facilitate content updates by non-techincal staff.
+  \end{itemize}
+\item Cooperated in planning and oversight of the construction of a second building/location, including the design and installation of combined network.
+\item Designed and developed automated reports based on sales and inventory data.
+\item Researched, recommended and purchased new technology for the entire organization.\newline%
+\end{itemize}}
+
+\section{Key Skills Summary}
+\cvitem{Systems}{Linux (Debian, RHEL), Windows (all variants), iSeries AS/400, OpenBSD, Solaris}
+\cvitem{Network}{Apache, Apache Tomcat, ActiveMQ, Postfix, Sendmail, Courier, Dovecot, OpenVPN, OpenSSH, Samba, OpenLDAP, BIND, ISC DHCP, CUPS, netfilter/iptables, pf, OSSEC}
+\cvitem{Databases}{PostgreSQL, MySQL, CouchDB/Couchbase, OS/400 DB2}
+\cvitem{Languages}{Python, bash (fluent), Java, Ruby, PHP (moderate), Perl, C (novice)}
+%-----       letter       ---------------------------------------------------------
+% recipient data
+\recipient{Hiring Manager}{}
+\date{April, 2012}
+\opening{Dear Sir or Madam,}
+\closing{Sincerely,}
+\enclosure{\Resume}
+\makelettertitle
+
+With 12 years of experience, I am at ease managing a diverse network of systems and associated
+services. Although my most recent work experience is decidedly web-centered, I believe that my unique
+capabilities support an efficient transition into almost any business context. 
+
+Throughout my career, I have worked in relatively small shops with a high degree of responsibility as 
+the sole system administrator; necessitating a great deal of versatility, in addition to fully effective 
+interpersonal, communication and organizational skills. Consequently, I am also comfortable working with 
+all levels of staff, regardless of technical proficiency. 
+
+I am passionate about solving problems, particularly those well suited to automation. 
+I enjoy digging into a difficult technical challenge, recognizing that it often requires learning a 
+new skill, concept or technique, and ultimately results in helping someone in a tangible way. 
+
+\makeletterclosing
+
+\end{document}
+
+
+%% end of file `resume.tex'.
