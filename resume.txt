@@ -19,7 +19,7 @@ open source technology.
                 * Developed a 1-wire based server room, climate sensor network and monitoring solution for less
                    than $100 (owfs, nagios, Python).
                 * Evaluated several free and/or open source virtualization management technologies (VMware-
-                   server, ESXi, KVM/libvirt, oVirt, ganeti, Proxmox)
+                   server, ESXi, KVM/libvirt, Proxmox, etc.)
                 * Assembled a Debian-based USB/LiveDVD disaster recovery environment (dnsmasq, pxe,
                    clonezilla, dokuwiki, subversion, puppet).
                 * Built an OpenOffice.org/LibreOffice headless Live CD-ROM image to provide scalable ODT
@@ -55,9 +55,9 @@ Hiring Manager April 5, 2012
 
 Dear Sir or Madam,
 
-This is a form letter, and if you are a hiring manager or recruiter seeking a talented System Administrator, to
-fill a position in your organization, I suggest you contact me directly to discuss my qualifications in greater
-detail.
+Please forgive the form letter. If you are a hiring manager or recruiter seeking a talented System
+Administrator, to fill a position in your organization, I suggest you contact me directly to discuss my
+qualifications in greater detail.
 
 Experienced Linux System Administrator
 With 12 years of experience, I am at ease managing a diverse network of computer systems and associated
@@ -72,7 +72,7 @@ regardless of technical proficiency, and I quickly build a reputation for gettin
 Open Source Technologist
 I have extensive experience utilizing Linux and other open source software to provide versatile and
 innovative solutions, and I am passionate about solving problems, particularly those well suited to
-automation. However, I enjoy digging into all types of difficult technical challenges, recognizing that they
+automation. I enjoy digging into all types of difficult technical challenges, as well, recognizing that they
 often require learning a new skill, concept or technique; and providing a solution, means helping someone
 in a tangible way.
 
