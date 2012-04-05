@@ -1,8 +1,10 @@
+submissions/
 ignore/
-resume.201002.tex
 *.log
 *.aux
 *.ps
-*.pdf
 *.dvi
 *.out
+resume.pdf
+resume.201002.tex
+MartinWalshCoverLetter.pdf
