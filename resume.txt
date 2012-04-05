@@ -12,43 +12,33 @@ open source technology.
                 vices for use by internal staff and clients. Closely supported the development efforts of all web
                 projects; configuring, deploying, and securing hosting environments/web stack.
                 Notable achievements:
-                *
-                   Implemented a comprehensive network monitoring and performance graphing solution (nagios,
+                * Implemented a comprehensive network monitoring and performance graphing solution (nagios,
                    Python/Jython, Java, rrdtool).
                    - Programmed more than 20 custom checks for unusual hardware and services.
                    - Created a utility framework for rapid development of new service checks.
-                *
-                   Developed a 1-wire based server room, climate sensor network and monitoring solution for less
+                * Developed a 1-wire based server room, climate sensor network and monitoring solution for less
                    than $100 (owfs, nagios, Python).
-                *
-                   Evaluated several free and/or open source virtualization management technologies (VMware-
+                * Evaluated several free and/or open source virtualization management technologies (VMware-
                    server, ESXi, KVM/libvirt, Proxmox, etc.)
-                *
-                   Assembled a Debian-based USB/LiveDVD disaster recovery environment (dnsmasq, pxe,
+                * Assembled a Debian-based USB/LiveDVD disaster recovery environment (dnsmasq, pxe,
                    clonezilla, dokuwiki, subversion, puppet).
-                *
-                   Built an OpenOffice.org/LibreOffice headless Live CD-ROM image to provide scalable ODT
+                * Built an OpenOffice.org/LibreOffice headless Live CD-ROM image to provide scalable ODT
                    to PDF conversion services to internally hosted Java web applications (BartPE, LibreOffice,
                    OOoServer, KVM/Proxmox).
     2000--2005 IT Manager, RS Industrial, Buford, Georgia.
                 Provided corporate leadership and manpower for all IT initiatives.
                 Notable achievements:
-                *
-                   Supervised the development of, both industrial and retail, e-commerce websites (Java, Apache
+                * Supervised the development of, both industrial and retail, e-commerce websites (Java, Apache
                    Tomcat, Python, Zope).
                    - Contributed Java code to integrate with credit card, payment gateway service.
                    - Developed a custom Zope "Product" to facilitate content updates by non-techincal staff.
-                *
-                   Cooperated in planning and oversight of the construction of a second building/location, including
+                * Cooperated in planning and oversight of the construction of a second building/location, including
                    the design and installation of combined network.
-                *
-                   Designed and developed automated reports based on sales and inventory datai (MS Excel/VBA,
+                * Designed and developed automated reports based on sales and inventory datai (MS Excel/VBA,
                    MS SQL Server, Python).
-                *
-                   Implemented a voice call notification system (nagios, festival, Python, xmlrpclib, pyserial, Hayes
+                * Implemented a voice call notification system (nagios, festival, Python, xmlrpclib, pyserial, Hayes
                    command set)
-                *
-                   Researched, recommended and purchased new technology for the entire organization.
+                * Researched, recommended and purchased new technology for the entire organization.
 
                 Key Skills
       Systems Linux (Debian, RHEL), Windows (all variants), iSeries AS/400, OpenBSD, Solaris
@@ -58,9 +48,9 @@ open source technology.
    Languages Python, bash (fluent), Java, Ruby, PHP (moderate), Perl, C (novice)
 
 
-                                                                                                                       Martin Walsh
+                                                                                                                      Martin Walsh
                                                                                                                  Evanston, IL 60202
-                                                                                                                                                                                               mwalsh@mwalsh.org
+                                                                                                                                                                                              mwalsh@mwalsh.org
 Hiring Manager April 5, 2012
 
 Dear Sir or Madam,
@@ -71,18 +61,18 @@ qualifications in greater detail.
 
 Experienced Linux System Administrator
 With 12 years of experience, I am at ease managing a diverse network of computer systems and associated
-services. Although my most recent work experience is decidedly web-centered, I believe that my unique
-skillset supports an efficient transition into almost any business context.
+services. My most recent work experience is decidedly web-centered, but I believe that my unique skillset
+supports an efficient transition into almost any business context.
 Versatile, Amiable and Professional
-
 Throughout my career, I have worked in relatively small environments with a high degree of responsibility,
 as the sole system administrator; necessitating a great deal of flexibility, and effective interpersonal,
 communication and organizational skills. Consequently, I am comfortable working with all levels of staff,
 regardless of technical proficiency, and I quickly build a reputation for getting things done.
+
 Open Source Technologist
 I have extensive experience utilizing Linux and other open source software to provide versatile and
 innovative solutions, and I am passionate about solving problems, particularly those well suited to
-automation. I enjoy digging into all types of difficult technical challenges, as well, recognizing that they
+automation. Although, I enjoy digging into all kinds of difficult technical challenges, recognizing that they
 often require learning a new skill, concept or technique; and providing a solution, means helping someone
 in a tangible way.
 
