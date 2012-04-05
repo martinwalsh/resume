@@ -34,7 +34,7 @@ pdflatex $IN
 
 # plain text version
 latex $IN
-catdvi -e 1 -U $LABEL.dvi | sed -re "s/\[U\+22C6\]/*/g" | sed -re "s/([^^[:space:]])\s+/\1 /g" |  sed -re "s/\[U\+2709\]/                                                                                  /g" | sed -re "s/\[U\+00E9\]/e/g"  > $LABEL.txt
+catdvi -e 1 -U $LABEL.dvi | sed -re "s/\[U\+22C6\]/*/g" | sed -re "s/([^^[:space:]])\s+/\1 /g" |  sed -re "s/\[U\+2709\]/                                                                                  /g" | sed -re "s/\[U\+00E9\]/e/g"  > README # $LABEL.txt
 
 # reorder/organize output
 pdftk $LABEL.pdf cat 2-1 output MartinWalsh.pdf
