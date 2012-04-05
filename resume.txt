@@ -1,7 +1,7 @@
 
 Martin Walsh
                                                                                                               Evanston, IL 60202
-Linux System Administrator                                                                                    mwalsh@mwalsh.org
+Linux System Administrator                                                                                    sysadm@mwalsh.org
                 Objective
 
 Seeking a challenging, and multifaceted, system administration position requiring the creative application of
@@ -50,7 +50,7 @@ open source technology.
 
                                                                                                                       Martin Walsh
                                                                                                                  Evanston, IL 60202
-                                                                                                                                                                                              mwalsh@mwalsh.org
+                                                                                                                                                                                              sysadm@mwalsh.org
 Hiring Manager April 5, 2012
 
 Dear Sir or Madam,
