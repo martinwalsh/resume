@@ -34,7 +34,7 @@ open source technology.
                    - Developed a custom Zope "Product" to facilitate content updates by non-techincal staff.
                 * Cooperated in planning and oversight of the construction of a second building/location, including
                    the design and installation of combined network.
-                * Designed and developed automated reports based on sales and inventory datai (MS Excel/VBA,
+                * Designed and developed automated reports based on sales and inventory data (MS Excel/VBA,
                    MS SQL Server, Python).
                 * Implemented a voice call notification system (nagios, festival, Python, xmlrpclib, pyserial, Hayes
                    command set)
@@ -45,13 +45,13 @@ open source technology.
      Network Apache, Apache Tomcat, ActiveMQ, Postfix, Sendmail, Courier, Dovecot, OpenVPN,
                 OpenSSH, Samba, OpenLDAP, BIND, ISC DHCP, CUPS, netfilter/iptables, pf, OSSEC
     Databases PostgreSQL, MySQL, CouchDB/Couchbase, OS/400 DB2
-   Languages Python, bash (fluent), Java, Ruby, PHP (moderate), Perl, C (novice)
+   Languages Python (fluent), bash, Java, Ruby, PHP (moderate), Perl, C (novice)
 
 
                                                                                                                       Martin Walsh
                                                                                                                  Evanston, IL 60202
                                                                                                                                                                                               sysadm@mwalsh.org
-Hiring Manager April 5, 2012
+Hiring Manager May 1, 2012
 
 Dear Sir or Madam,
 
