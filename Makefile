@@ -9,17 +9,17 @@ vendor build:
 	@echo "=====> create the $@ directory"
 	mkdir -p $@
 
-#> renders a similarly named latex document in pdf format
-%.pdf: %.tex docker-build | build
-	@echo "=====> building $@ from $<"
-	$(DOCKER) run -ti -e SOURCE="$<" \
+#> renders the given tex document in pdf format
+%.tex: docker-build | build
+	@echo "=====> building $(call _textopdf,$@) from $@"
+	$(DOCKER) run -ti -e SOURCE="$@" \
 			--name $(DOCKER_IMAGE_NAME) $(DOCKER_IMAGE_NAME); \
-			$(DOCKER) cp $(DOCKER_IMAGE_NAME):/resume/$@ build/ ; \
+			$(DOCKER) cp $(DOCKER_IMAGE_NAME):/resume/$(call _textopdf,$@) build/ ; \
 			$(DOCKER) rm $(DOCKER_IMAGE_NAME) > /dev/null
 
 #> builds the default resume
 resume:
-	make src/resume.pdf
+	make src/resume.tex
 .PHONY: resume
 
 _entrypoint:
