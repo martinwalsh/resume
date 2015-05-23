@@ -1,10 +1,4 @@
-submissions/
-ignore/
-*.log
-*.aux
-*.ps
-*.dvi
-*.out
-resume.pdf
-resume.201002.tex
-MartinWalshCoverLetter.pdf
+build/
+scratch/
+vendor/
+alternates/
