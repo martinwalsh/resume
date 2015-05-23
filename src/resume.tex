@@ -1,139 +1,245 @@
-\documentclass[11pt,letterpaper,sans]{moderncv}
+\documentclass[10pt,letterpaper]{article}
 
-\renewcommand{\labelitemi}{$\star$}
+% meta-data hints for the resulting pdf
+\pdfinfo{
+  /Author     (Martin Walsh)
+  /Title      (Martin Walsh - Linux System Administrator)
+  /Subject    (Resume of Martin Walsh)
+}
 
-\def\Resume{{r\'{e}sum\'{e}}}
+% debug layout (uncomment to enable)
+% \usepackage[noframe]{showframe}
+% \usepackage{layout}
+% \usepackage{kantlipsum}
 
-% moderncv themes
-\moderncvstyle{classic}
-\moderncvcolor{blue}
-\nopagenumbers{}
+\usepackage[
+  letterpaper,
+  margin=0.50in,
+  top=1.0in,
+  bottom=0.25in,
+  headheight=37pt,
+  headsep=5pt
+]{geometry}
 
-% character encoding
-\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[explicit]{titlesec}
+\usepackage{graphicx}
+\usepackage{calc}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{chngpage}
+\usepackage{enumitem}
+\usepackage{tabulary}
+% tells latex to avoid hyphenation at all costs
+% (although \raggedright seems to produce better results)
+% \usepackage[none]{hyphenat}
 
-% adjust the page margins
-\usepackage[scale=0.85]{geometry}
-\setlength{\hintscolumnwidth}{2.5cm}
-%\usepackage{helvet}
-\usepackage{mathpazo}
-\renewcommand{\sfdefault}{ppl}
+% fonts
+\usepackage[misc]{ifsym}
+% \usepackage{lmodern}
+% \usepackage{mathpazo}
+\usepackage{palatino}
 
-% personal data
-\firstname{Martin}
-\familyname{Walsh}
-\title{Linux System Administrator}
-\address{~}{Evanston, IL 60202}
-\email{sysadm@mwalsh.org}
+\newcommand{\cvsection}[1]{%
+\titleformat{\section}[hang]
+  {\normalfont\bfseries}  % format
+  {\thesection}                   % label
+  {0pt}                           % sep
+  {{\rule[0.5ex]{\textwidth - \widthof{~\MakeUppercase{#1}}}{2pt}%
+    {~\MakeUppercase{#1}}}}       % before code
+  {}                              % after code
 
+\titlespacing{\section}{0em}{0em}{0em}
+
+\section*{#1}
+}
+
+% styles
+\def\labelitemi{\raisebox{0.5ex}{\tiny$\bullet$}}
+\def\labelitemii{\raisebox{0.5ex}{\tiny$\circ$}}
+% sets the default font family to sans-serif
+\renewcommand{\familydefault}{\sfdefault}
+% adjust spacing between bulleted list items
+\setlength{\itemsep}{1ex}
+% remove extra padding between list items
+\setlist{nosep}
+% prevents first-level list indentation
+\setlist[itemize]{leftmargin=*}
+
+% builds the header section
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\cvheader}{%
+\fancyhf{}
+\fancyhead[L]{%
+  \huge{\MakeUppercase{\bfseries{Martin Walsh}}} \\
+  \large{\textit{Linux System Administrator $\cdot$ DevOps}}}
+\fancyhead[R]{%
+  \small{
+    \textit{Evanston, IL, 60202 \\
+    \href{mailto:sysadm@mwalsh.org}{%
+      \raisebox{-0.25ex}{\Letter}~\textit{sysadm@mwalsh.org}}}}}
+}
+
+% builds an employment history entry
+\newcommand{\cventry}[5]{%
+{\bfseries{#2}} {\small{\textit{#3}, #4}}\hfill {\small\bfseries{#1}}
+\begin{small}\begin{adjustwidth}{1em}{2em}{\raggedright{#5}}\end{adjustwidth}\end{small}
+}
+
+% start of document
 \begin{document}
-\makecvtitle
+% debug: show layout elements on page (uncomment to enable)
+% \AddToShipoutPicture*{\ShowFramePicture}
+\cvheader
 
-\section{Objective}
+\begin{minipage}[t]{0.54\textwidth}
 
-Seeking a challenging, and multifaceted, system administration position 
-requiring the creative application of open source technology.
+\cvsection{Summary}
+\raggedright\small{%
+  \vspace{0.5ex}
+  Code-slinging system administrator, DevOps practitioner, and open source
+  enthusiast with more than 15 years experience and a passion for automation.
+  \vspace{1ex}
+  \begin{itemize}
+  \item Detail-oriented and dedicated to fulfilling business objectives
+  \item Trusted teammate/mentor with a reputation for high productivity
+  \item Deep understanding of configuration management practices
+  \item Advocate of operational transparency (and ChatOps)
+  \item Strong programming background; expert-level Python language
+  %\item Practitioner of the measure-modify-measure approach to change management
+  \end{itemize}}
 
-%\section{Overview}
-%\begin{itemize}
-%\item Passionate, hard working professional with more than 10 years experience 
-%serving small businesses.
-%\item Demonstrated ability to analyze business issues; efficient, accurate, 
-%detail-oriented, highly skilled at resolving problems, and a track record of 
-%success with high responsibility.
-%\item Amiable and professional, with both a sense of humor and a strong 
-%commitment toward success.
-%\item Versatile and able to coordinate multiple projects, shifting to cover a 
-%multitude of positions as needed.\newline
-%\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.44\textwidth}
 
-\section{Professional Experience}
+\cvsection{Proficiencies}
+\footnotesize{%
+  \begin{tabulary}{\textwidth}{l|L}%
+  Systems    & RHEL/CentOS, Debian/Ubuntu, Mac~OS~X, Windows \\[0.25ex]
+  Services   & Apache, Nginx, Memcached, Redis, RabbitMQ, BIND, Postfix, PuppetDB, Elasticsearch, Consul \\[0.25ex]
+  Tools      & Puppet, Ansible, Vagrant, Packer, Docker, git, make, Capistrano, Jenkins \\[0.25ex]
+  Monitoring & Nagios, Ganglia, Logstash, Graphite, Statsd, Monit, Kibana, Grafana \\[0.25ex]
+  Languages  & Python, Ruby, Coffeescript/Javascript, Bash
+  \end{tabulary}}
 
-\cventry{2005--Present}{System Administrator}{Parity Systems}{Evanston}{Illinois}{Responsible for the installation, maintenance and documentation of all hardware and network services for use by internal staff and clients. Closely supported the development efforts of all web projects; configuring, deploying, and securing hosting environments/web stack.
-\newline{}Notable achievements:%:
-\begin{itemize}%
-\item Implemented a comprehensive network monitoring and performance graphing solution (nagios, Python/Jython, Java, rrdtool).
-  \begin{itemize}%
-  \item Programmed more than 20 custom checks for unusual hardware and services.
-  \item Created a utility framework for rapid development of new service checks.
+\end{minipage}
+
+\cvsection{Professional Experience}
+
+\cventry{2012--Present}{Sr. Systems Engineer}{Leapfrog Online}{Evanston, IL}{%
+{Responsible for monitoring, maintaining and improving the system performance,
+reliability and security of business critical, customer-facing infrastructure.}
+
+\begin{itemize}
+\item Acted as operations/technical lead in support of the ongoing
+      development of multiple selling platforms
+\item Participated in the planning and successful execution of a large
+      production data center migration with minimal downtime
+\item Provided in-house training to cross-functional audiences, covering
+      topics such as:
+\begin{itemize}
+  \item Nagios configuration and custom plugin development
+  \item Puppet best practices, workflow and testing
+  \item Kibana/Grafana dashboard creation and data analysis
+  \item SSL/HTTPS, DNS and domain registration
+\end{itemize}
+\item Shepherded a custom instance of GitHub's Hubot, used heavily for
+      automated deployments, alerting, orchestration of routine system
+      upgrades and much more (Coffeescript, NodeJS, Ansible)
+\item Designed, developed and implemented a self-service process for updating
+      BIND DNS records using a standard application deployment workflow (Python,
+      YAML, Capistrano, Jenkins, BIND)
+\item Assisted in the creation and maintenance of more than 80 custom and 3rd
+      party Puppet modules, custom parser functions, providers and facts (Ruby,
+      PuppetDB, rspec-puppet, beaker)
+\item Automated local Puppet development tasks, such as:
+  \begin{itemize}
+    \item unit and acceptance testing
+    \item catalog differencing based on local changes
+    \item rendering of individual templates
   \end{itemize}
-\item Developed a 1-wire based server room, climate sensor network and monitoring solution for less than \$100 (owfs, nagios, Python).
-\item Evaluated several free and/or open source virtualization management technologies (VMware-server, ESXi, KVM/libvirt, Proxmox, etc.)
-\item Assembled a Debian-based USB/LiveDVD disaster recovery environment (dnsmasq, pxe, clonezilla, dokuwiki, subversion, puppet).
-\item Built an OpenOffice.org/LibreOffice headless Live CD-ROM image to provide scalable ODT to PDF conversion services to internally hosted Java web applications (BartPE, LibreOffice, OOoServer, KVM/Proxmox).%\newline%
-%\item Provided oversight and documentation of critical business systems. Installed and maintained the company Wiki; primary contributor of system documentation.
-%\item Automated AS/400 configuration, monitoring and reporting tasks to improve responsiveness of legacy support requests and to simplify administration (Jython, JTOpen).
-%\item Created a website-to-PDF screen capturing web service to facilitate acceptance of content change requests (Python, Selenium, pdftk).
-%\item Migrated Windows 2000 domain to open source alternative: Samba 3, OpenLDAP, cups
-%\item Installed and configured an OpenBSD/pf based "bump-in-the-wire" transparent firewall.
-%\item Developed general purpose and extensible FTP and LPD daemons, in Python, which were subsequently used in several internal development projects.
-%\item Developed an MS Office 2010 conversion service, with a Python xmlrpclib front-end, to convert office documents into open formats.
-%\item Wrote and maintained a collection of Python utility modules for common system tasks.
-\end{itemize}}
+\item Developed a lightweight Puppet dashboard replacement with custom
+      capabilities (Python, Flask, YAML, JSON)
+\item Combined Packer, Ansible and Puppet to fully automate provisioning of a
+      disaster recovery environment in a reproducible way
+\item Managed a Nagios instance with more than 1800 service checks, filled
+      gaps in monitoring by writing custom plugins and improved alert
+      messaging to facilitate incident response
+\item Transitioned to standard development practices for all Ops-only software
+      projects, as appropriate, encouraging contributions from other teams
+      (GitHub Enterprise, git, make, Bundler, virtualenv, nodeenv)
+\item Designed and implemented high-availability clusters for both RabbitMQ
+      and Redis
+\item Created standardized Docker images for use in local testing by fellow
+      software and systems engineers
+\end{itemize}
+}
 
-\cventry{2000--2005}{IT Manager}{RS Industrial}{Buford}{Georgia}{Provided corporate leadership and manpower for all IT initiatives.
-\newline{}Notable achievements:%:
-\begin{itemize}%
-\item Supervised the development of, both industrial and retail, e-commerce websites (Java, Apache Tomcat, Python, Zope).
-  \begin{itemize}%
-  \item Contributed Java code to integrate with credit card, payment gateway service.
-  \item Developed a custom Zope "Product" to facilitate content updates by non-techincal staff.
-  \end{itemize}
-\item Cooperated in planning and oversight of the construction of a second building/location, including the design and installation of combined network.
-\item Designed and developed automated reports based on sales and inventory data (MS Excel/VBA, MS SQL Server, Python).
-\item Implemented a voice call notification system (nagios, festival, Python, xmlrpclib, pyserial, Hayes command set)
-\item Researched, recommended and purchased new technology for the entire organization.%\newline%
-%\item Participated in both retail and industrial product launches. 
-%  \begin{itemize}
-%  \item Lead a small team to design product packaging and sales literature.
-%  \end{itemize}
-%\item Developed several customer service database features, furnishing automation and integration,and providing commonly requested functionality (FileMaker, MS Dynamics).
-%\item Introduced open source software to provide network services at a greatly reduced cost (Postfix, spamassasin, amavisd, BIND, dhcpd, hylafax (print-to-fax), Samba, cups, nagios).
-\end{itemize}}
+\cventry{2005--2012}{System Administrator}{Parity Systems}{Evanston, IL}{%
+{Responsible for the installation, configuration, maintenance and documentation
+of all hardware and network services, for use by internal staff and clients
+in support of software (web) development projects.}
 
-\section{Key Skills}
-\cvitem{Systems}{Linux (Debian, RHEL), Windows (all variants), iSeries AS/400, OpenBSD, Solaris}
-\cvitem{Network}{Apache, Apache Tomcat, ActiveMQ, Postfix, Sendmail, Courier, Dovecot, OpenVPN, OpenSSH, Samba, OpenLDAP, BIND, ISC DHCP, CUPS, netfilter/iptables, pf, OSSEC}
-\cvitem{Databases}{PostgreSQL, MySQL, CouchDB/Couchbase, OS/400 DB2}
-\cvitem{Languages}{Python (fluent), bash, Java, Ruby, PHP (moderate), Perl, C (novice)}
-%-----       letter       ---------------------------------------------------------
-% recipient data
-\recipient{Hiring Manager}{}
-\date{April, 2012}
-\opening{Dear Sir or Madam,}
-\closing{Sincerely,}
-\enclosure{\Resume}
-\makelettertitle
+\begin{itemize}
+\item Implemented a comprehensive network and performance monitoring solution,
+more than 20 custom checks for unusual hardware and services, and a utility
+framework for rapid development of new service checks
+\item Constructed a server-room climate monitoring system for less than \$100
+% \item Evaluated several free and/or open source virtualization management
+%       technologies (VMware-server, ESXi, KVM/libvirt, Proxmox, etc.)
+\item Created a Debian-based USB/LiveDVD disaster recovery environment which
+      included DNS/DHCP, PXE, clonezilla, wiki, Puppet and backup of
+      application source code and data
+\item Built an immutable Live CD-ROM image to provide distributed
+      PDF conversion services for consumption by internally hosted Java web
+      applications
+\item Installed and maintained the company wiki as its primary contributor,
+      providing documentation of critical business systems.
+% \item Automated AS/400 configuration, monitoring and reporting tasks to
+%       improve responsiveness of legacy support requests and to simplify
+%       administration (Jython, JTOpen).
+% \item Created a website-to-PDF screen capturing web service
+%       to facilitate acceptance of content change requests (Python, Selenium,
+%       pdftk).
+% \item Migrated Windows 2000 domain to open source alternative: Samba 3,
+%       OpenLDAP, cups
+% \item Installed and configured an OpenBSD/pf based "bump-in-the-wire"
+%       transparent firewall.
+% \item Developed general purpose and extensible FTP and LPD daemons, in Python,
+%        which were subsequently used in several internal development projects.
+% \item Developed an MS Office 2010 conversion service, with a Python xmlrpclib
+%       front-end, to convert office documents into open formats.
+% \item Wrote and maintained a collection of Python utility modules for common
+%       system tasks.
+\end{itemize}
+}
 
-Please forgive the form letter. If you are a hiring manager or recruiter seeking a talented
-System Administrator, to fill a position in your organization, I suggest you contact me 
-directly to discuss my qualifications in greater detail. 
-
-\emph{\newline{}Experienced Linux System Administrator}
-
-With 12 years of experience, I am at ease managing a diverse network of computer systems and associated
-services. My most recent work experience is decidedly web-centered, but I believe that my unique
-skillset supports an efficient transition into almost any business context. 
-
-\emph{\newline{}Versatile, Amiable and Professional}
-
-Throughout my career, I have worked in relatively small environments with a high degree of 
-responsibility, as the sole system administrator; necessitating a great deal of flexibility, and 
-effective interpersonal, communication and organizational skills. Consequently, I am comfortable working 
-with all levels of staff, regardless of technical proficiency, and I quickly build a reputation 
-for getting things done. 
-
-\emph{\newline{}Open Source Technologist}
-
-I have extensive experience utilizing Linux and other open source software to provide versatile and 
-innovative solutions, and I am passionate about solving problems, particularly those well suited to 
-automation. Although, I enjoy digging into \emph{all} kinds of difficult technical challenges, recognizing 
-that they often require learning a new skill, concept or technique; and providing a solution, means 
-helping someone in a tangible way.\newline
-
-Thank you for taking the time to review my enclosed \Resume. Should you have any questions, please
-contact me at the email address provided.
-
-\makeletterclosing
-
+\cventry{2000--2005}{IT Manager}{RS Industrial}{Buford, GA}{%
+\begin{itemize}
+\item Researched, recommended and purchased new technology for the entire
+      organization
+\item Supervised the development e-commerce websites used by both wholesale and
+      retail clients; contributing code to integrate with payment gateway
+      service
+\item Cooperated in planning and oversight for the construction of a
+      second location, including the design and installation of combined network
+\item Scripted weekly sales reports from disparate data
+      sources, formerly an error prone and lengthy manual process
+\item Combined several common open source tools, to create a voice-call
+      notification system (Nagios, festival text-to-speech, Python, xmlrpclib,
+      pyserial)
+\end{itemize}
+% \item Participated in both retail and industrial product launches.
+%   \begin{itemize}
+%   \item Lead a small team to design product packaging and sales literature.
+%   \end{itemize}
+% \item Developed several customer service database features, furnishing
+%       automation and integration,and providing commonly requested functionality
+%       (FileMaker, MS Dynamics).
+% \item Introduced open source software to providenetwork services at a greatly
+%       reduced cost (Postfix, spamassasin, amavisd, BIND, dhcpd, hylafax
+%       (print-to-fax), Samba, cups, nagios).
+}
 \end{document}
