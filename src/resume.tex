@@ -119,7 +119,7 @@
   \begin{tabulary}{\textwidth}{l|L}%
   Systems    & RHEL/CentOS, Debian/Ubuntu, Mac~OS~X, Windows \\[0.25ex]
   Services   & Apache, Nginx, Memcached, Redis, RabbitMQ, BIND, Postfix, PuppetDB, Elasticsearch, Consul \\[0.25ex]
-  Tools      & Puppet, Ansible, Vagrant, Packer, Docker, git, make, Capistrano, Jenkins \\[0.25ex]
+  Tools      & Puppet, Hiera, Ansible, Vagrant, Packer, Docker, git, make, Capistrano, Jenkins \\[0.25ex]
   Monitoring & Nagios, Ganglia, Logstash, Graphite, Statsd, Monit, Kibana, Grafana \\[0.25ex]
   Languages  & Python, Ruby, Coffeescript/Javascript, Bash
   \end{tabulary}}
@@ -148,12 +148,12 @@ reliability and security of business critical, customer-facing infrastructure.}
 \item Shepherded a custom instance of GitHub's Hubot, used heavily for
       automated deployments, alerting, orchestration of routine system
       upgrades and much more (Coffeescript, NodeJS, Ansible)
-\item Designed, developed and implemented a self-service process for updating
+\item Designed, developed and implemented a self-service mechanism for updating
       BIND DNS records using a standard application deployment workflow (Python,
       YAML, git, Capistrano, Jenkins, BIND)
 \item Assisted in the creation and maintenance of more than 80 custom and 3rd
-      party Puppet modules, custom parser functions, providers and facts (Ruby,
-      PuppetDB, rspec-puppet, beaker)
+      party Puppet modules, custom parser functions, providers and facts
+      (Puppet, Hiera, Ruby, PuppetDB, rspec-puppet, beaker)
 \item Automated local Puppet development tasks, such as:
   \begin{itemize}
     \item unit and acceptance testing
