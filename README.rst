@@ -26,6 +26,7 @@ Prerequisites
 The following items are required by select make targets:
 
 - make      (of course)
+- VirtualBox
 - curl      (for downloading the various docker utilities)
 - python2.7 (for displaying help embedded as comments)
 
