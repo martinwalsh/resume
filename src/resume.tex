@@ -1,4 +1,4 @@
-\documentclass[10pt,letterpaper]{article}
+\documentclass[11pt,letterpaper]{article}
 
 % meta-data hints for the resulting pdf
 \pdfinfo{
@@ -37,8 +37,6 @@
 
 % fonts
 \usepackage[misc]{ifsym}
-% \usepackage{lmodern}
-% \usepackage{mathpazo}
 \usepackage{palatino}
 
 \newcommand{\cvsection}[1]{%
@@ -55,7 +53,7 @@
 \section*{#1}
 }
 
-% styles
+% redefines the default bullet styles for the first two levels
 \def\labelitemi{\raisebox{0.5ex}{\tiny$\bullet$}}
 \def\labelitemii{\raisebox{0.5ex}{\tiny$\circ$}}
 % sets the default font family to sans-serif
@@ -64,8 +62,6 @@
 \setlength{\itemsep}{1ex}
 % remove extra padding between list items
 \setlist{nosep}
-% prevents first-level list indentation
-\setlist[itemize]{leftmargin=*}
 
 % builds the header section
 \renewcommand{\headrulewidth}{0pt}
@@ -84,7 +80,12 @@
 % builds an employment history entry
 \newcommand{\cventry}[5]{%
 {\bfseries{#2}} {\small{\textit{#3}, #4}}\hfill {\small\bfseries{#1}}
-\begin{small}\begin{adjustwidth}{1em}{2em}{\raggedright{#5}}\end{adjustwidth}\end{small}
+\begin{adjustwidth}{1em}{2em}{\raggedright{#5}}\end{adjustwidth}
+}
+
+% build a skills entry
+\newcommand{\skill}[2]{%
+\textit{#1} & #2 \\[0.25ex]
 }
 
 % start of document
@@ -93,135 +94,149 @@
 % \AddToShipoutPicture*{\ShowFramePicture}
 \cvheader
 
-\begin{minipage}[t]{0.54\textwidth}
-
 \cvsection{Summary}
-\raggedright\small{%
-  \vspace{0.5ex}
+\raggedright{%
+\begin{adjustwidth}{}{2em}
   Code-slinging system administrator, DevOps practitioner, and open source
-  enthusiast with more than 15 years experience and a passion for automation.
-  \vspace{1ex}
+  enthusiast with more than 15 years experience and a penchant for automating
+  \ldots everything.
   \begin{itemize}
   \item Detail-oriented and dedicated to fulfilling business objectives
-  \item Trusted teammate/mentor with a reputation for high productivity
-  \item Deep understanding of configuration management practices
-  \item Advocate of operational transparency (and ChatOps)
-  \item Strong programming background; expert-level Python language
-  %\item Practitioner of the measure-modify-measure approach to change management
-  \end{itemize}}
-
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.44\textwidth}
+  \item Trusted teammate and mentor with a reputation for high productivity
+  \item Deep understanding of configuration management practices and rationale
+  \item ChatOps fan and a stickler for operational transparency
+  \item Strong programming background; Python language expert in scripting/automation
+  \end{itemize}
+\end{adjustwidth}}
 
 \cvsection{Proficiencies}
-\footnotesize{%
+\raggedright{%
   \begin{tabulary}{\textwidth}{l|L}%
-  Systems    & RHEL/CentOS, Debian/Ubuntu, Mac~OS~X, Windows \\[0.25ex]
-  Services   & Apache, Nginx, Memcached, Redis, RabbitMQ, BIND, Postfix, PuppetDB, Elasticsearch, Consul \\[0.25ex]
-  Tools      & Puppet, Hiera, Ansible, Vagrant, Packer, Docker, git, make, Capistrano, Jenkins \\[0.25ex]
-  Monitoring & Nagios, Ganglia, Logstash, Graphite, Statsd, Monit, Kibana, Grafana \\[0.25ex]
-  Languages  & Python, Ruby, Coffeescript/Javascript, Bash
-  \end{tabulary}}
+  \skill{Systems}{RHEL/CentOS, Debian/Ubuntu, Mac~OS~X, Windows}
+  \skill{Services}{Apache, Nginx, HAProxy, Memcached, Redis, RabbitMQ, BIND, Postfix, PuppetDB, Elasticsearch, Consul}
+  \skill{Tools}{Puppet, Hiera, Ansible, Vagrant, Packer, Docker, Git, Make, Capistrano, Jenkins}
+  \skill{Monitoring}{Nagios, Ganglia, Logstash, Graphite, Statsd, Monit, Kibana, Grafana}
+  \skill{Languages}{Python, Ruby, Coffeescript/Javascript, Bash}
+  \end{tabulary}
+}
 
-\end{minipage}
+% prevents first-level list indentation
+\setlist[itemize]{leftmargin=*}
 
 \cvsection{Professional Experience}
 
 \cventry{2012--Present}{Sr. Systems Engineer}{Leapfrog Online}{Evanston, IL}{%
 {Responsible for monitoring, maintaining and improving the system performance,
-reliability and security of business critical, customer-facing infrastructure.}
+reliability and security of business-critical, customer-facing infrastructure.}
 
+\begin{small}
 \begin{itemize}
-\item Acted as operations/technical lead in support of the ongoing
+\item Acted as systems engineering lead in support of the ongoing
       development of multiple selling platforms
-\item Participated in the planning and successful execution of a large
-      production data center migration with minimal downtime
+\item Participated in the planning and successful execution of a large scale
+      production datacenter migration with minimal downtime
 \item Provided in-house training to cross-functional audiences, covering
       topics such as:
 \begin{itemize}
-  \item Nagios configuration and custom plugin development
-  \item Puppet best practices, workflow and testing
-  \item Kibana/Grafana dashboard creation and data analysis
+  \item Nagios: configuration best practices and custom plugin development
+  \item Puppet: best practices, development workflow, and testing
+  \item Dashboard creation and data analysis with Kibana/Grafana
   \item SSL/HTTPS, DNS and domain registration
 \end{itemize}
-\item Shepherded a custom instance of GitHub's Hubot, used heavily for
-      automated deployments, alerting, orchestration of routine system
-      upgrades and much more (Coffeescript, NodeJS, Ansible)
-\item Designed, developed and implemented a self-service mechanism for updating
-      BIND DNS records using a standard application deployment workflow (Python,
-      YAML, git, Capistrano, Jenkins, BIND)
 \item Assisted in the creation and maintenance of more than 80 custom and 3rd
-      party Puppet modules, custom parser functions, providers and facts
-      (Puppet, Hiera, Ruby, PuppetDB, rspec-puppet, beaker)
-\item Automated local Puppet development tasks, such as:
+      party Puppet modules, custom parser functions, providers and facts, using
+      modern best practices (Puppet, Hiera, Ruby, PuppetDB, rspec-puppet,
+      Beaker, Make)
+\item Wrote helper scripts to automate local Puppet development tasks, such as:
   \begin{itemize}
-    \item unit and acceptance testing
-    \item catalog differencing based on local changes
-    \item rendering of individual templates
+    \item Unit and acceptance testing
+    \item Catalog diff'ing of local changes vs. the most recently applied catalog
+    \item Full-context rendering of individual file resource templates
   \end{itemize}
-\item Developed a lightweight Puppet dashboard replacement with custom
-      capabilities (Python, Flask, YAML, JSON)
-\item Combined Packer, Ansible and Puppet to fully automate provisioning of a
-      disaster recovery environment in a reproducible way
-\item Managed a Nagios instance with more than 1800 service checks, filled
-      gaps in monitoring by writing custom plugins and improved alert
-      messaging to facilitate incident response
-\item Transitioned to standard development practices for all Ops-only software
-      projects, as appropriate, encouraging contributions from other teams
-      (GitHub Enterprise, git, make, Bundler, virtualenv, nodeenv)
-\item Designed and implemented high-availability clusters for both RabbitMQ
+\item Developed a lightweight Puppet dashboard replacement that included an
+      API endpoint for monitoring and other custom capabilities (Python,
+      Flask, YAML, JSON)
+\item Shepherded a custom instance of GitHub's Hubot, used heavily for
+      automated deployments, Nagios management and alerting, orchestration of
+      routine system upgrades and much more (Coffeescript, NodeJS, Ansible)
+\item Replaced a difficult to maintain, manually managed, Windows DNS server
+      with BIND automation, providing a self-service workflow based on
+      standard application deployment procedures (Python, YAML, Git,
+      Capistrano, Jenkins, BIND)
+\item Contributed significantly to a fully automating the reproducible
+      build-out of a disaster recovery environment (Packer, Ansible, Puppet,
+      Python)
+\item Managed a Nagios instance with approximately 1800 service checks against
+      more than 150 hosts, filled gaps in monitoring by writing custom plugins
+      and improved alert messaging to facilitate incident response
+\item Standardized development practices for all applicable Ops-only software
+      projects, encouraging contributions from other teams (GitHub Enterprise,
+      Git, Make, Bundler, virtualenv)
+\item Designed and implemented high-availability clusters for RabbitMQ
       and Redis
 \item Created standardized Docker images for use in local testing by fellow
       software and systems engineers
 \end{itemize}
+\end{small}
 }
+\newpage
+\vspace{10ex}
+\cvsection{Professional Experience (continued)}
 
 \cventry{2005--2012}{System Administrator}{Parity Systems}{Evanston, IL}{%
 {Responsible for the installation, configuration, maintenance and documentation
 of all hardware and network services, for use by internal staff and clients
 in support of software (web) development projects.}
 
+\begin{small}
 \begin{itemize}
-\item Implemented a comprehensive network and performance monitoring solution,
-more than 20 custom checks for unusual hardware and services, and a utility
-framework for rapid development of new service checks
+\item Implemented a comprehensive network and performance monitoring solution
+      (Nagios, Python/Jython, Java, rrdtool)
+      \begin{itemize}
+      \item Wrote more than 20 additional custom checks for unusual hardware
+            and services
+      \item Created a utility framework for rapid development of new service
+            checks
+      \end{itemize}
 \item Constructed a server-room climate monitoring system for less than \$100
-% \item Evaluated several free and/or open source virtualization management
-%       technologies (VMware-server, ESXi, KVM/libvirt, Proxmox, etc.)
-\item Created a Debian-based USB/LiveDVD disaster recovery environment which
-      included DNS/DHCP, PXE, clonezilla, wiki, Puppet and backup of
-      application source code and data
+      (owfs, Nagios,
+\item Evaluated several free and/or open source virtualization management
+      technologies; recommended and implemented the best choice (VMware-server,
+      ESXi, KVM/libvirt, Proxmox, etc.)
+\item Created a Debian-based USB/LiveDVD disaster recovery environment (dnsmasq,
+      PXE, Clonezilla, Dokuwiki, Subversion, Puppet)
 \item Built an immutable Live CD-ROM image to provide distributed
       PDF conversion services for consumption by internally hosted Java web
-      applications
+      applications (BartPE, LibreOffice, OOoServer, KVM/Proxmox)
 \item Installed and maintained the company wiki as its primary contributor,
       providing documentation of critical business systems.
-% \item Automated AS/400 configuration, monitoring and reporting tasks to
-%       improve responsiveness of legacy support requests and to simplify
-%       administration (Jython, JTOpen).
-% \item Created a website-to-PDF screen capturing web service
-%       to facilitate acceptance of content change requests (Python, Selenium,
-%       pdftk).
+\item Automated AS/400 configuration, monitoring and reporting tasks to
+      improve responsiveness of legacy support requests and to simplify
+      administration (Jython, JTOpen).
+\item Created a website-to-PDF screen capturing web service
+      to facilitate acceptance of content change requests (Python, Selenium,
+      pdftk).
 % \item Migrated Windows 2000 domain to open source alternative: Samba 3,
 %       OpenLDAP, cups
-% \item Installed and configured an OpenBSD/pf based "bump-in-the-wire"
-%       transparent firewall.
-% \item Developed general purpose and extensible FTP and LPD daemons, in Python,
-%        which were subsequently used in several internal development projects.
-% \item Developed an MS Office 2010 conversion service, with a Python xmlrpclib
-%       front-end, to convert office documents into open formats.
-% \item Wrote and maintained a collection of Python utility modules for common
-%       system tasks.
+\item Installed and configured an OpenBSD/pf based "bump-in-the-wire"
+      transparent firewall
+\item Developed a general purpose and extensible FTP and LPD daemons, in Python,
+       which were used in several internal development projects.
+\item Developed an MS Office 2010 conversion service, with a Python xmlrpclib
+      front-end, to convert office documents into open formats.
+\item Wrote and maintained a collection of Python utility modules for common
+      system tasks.
 \end{itemize}
+\end{small}
 }
 
 \cventry{2000--2005}{IT Manager}{RS Industrial}{Buford, GA}{%
+\begin{small}
 \begin{itemize}
 \item Researched, recommended and purchased new technology for the entire
       organization
 \item Supervised the development e-commerce websites used by both wholesale and
-      retail clients; contributing code to integrate with payment gateway
+      retail clients; contributing code to integrate with a payment gateway
       service
 \item Cooperated in planning and oversight for the construction of a
       second location, including the design and installation of combined network
@@ -230,16 +245,23 @@ framework for rapid development of new service checks
 \item Combined several common open source tools, to create a voice-call
       notification system (Nagios, festival text-to-speech, Python, xmlrpclib,
       pyserial)
+\item Participated in both retail and industrial product launches.
+  \begin{itemize}
+  \item Lead a small team to design product packaging and sales literature.
+  \end{itemize}
+\item Developed several customer service database features, furnishing
+      automation and integration, and providing commonly requested functionality
+      (FileMaker, MS Great PLains).
+\item Introduced open source software to provide network services at a greatly
+      reduced cost (Postfix, Spamassasin, Amavisd, BIND, dhcpd, Hylafax, Samba,
+      cups, Nagios).
 \end{itemize}
-% \item Participated in both retail and industrial product launches.
-%   \begin{itemize}
-%   \item Lead a small team to design product packaging and sales literature.
-%   \end{itemize}
-% \item Developed several customer service database features, furnishing
-%       automation and integration,and providing commonly requested functionality
-%       (FileMaker, MS Dynamics).
-% \item Introduced open source software to providenetwork services at a greatly
-%       reduced cost (Postfix, spamassasin, amavisd, BIND, dhcpd, hylafax
-%       (print-to-fax), Samba, cups, nagios).
+\end{small}
 }
+
+\cvsection{Recent Training}
+{\textit{Statistics for Ops: Making Sense Out of Data}}\hfill {\small{LISA Conference 2014}} \\
+{\textit{R for Sysadmins}}\hfill {\small{LISA Conference 2014}} \\
+{\textit{Python for Data Analysis}}\hfill {\small{PyCon 2013}} \\
+
 \end{document}
