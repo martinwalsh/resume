@@ -1,6 +1,7 @@
 FROM ubuntu:14.04
 
 # TODO: install-tl-ubuntu (very slowly) installs the texlive-full profile
+RUN apt-get update
 RUN apt-get install -y wget make software-properties-common
 
 RUN wget -q -O install-tl-unx.tar.gz \

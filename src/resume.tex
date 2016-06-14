@@ -125,7 +125,37 @@
 
 \cvsection{Professional Experience}
 
-\cventry{2012--Present}{Sr. Systems Engineer}{Leapfrog Online}{Evanston, IL}{%
+\cventry{2015--2016}{Sr. Systems Engineer}{Wellspring Worldwide}{Chicago, IL}{%
+{}
+\begin{small}
+\begin{itemize}
+\item Worked closely with dev teams to improve the performance and stability of
+      production applications
+\item Implemented a fully automated performance testing product (Python, Ruby,
+      matplotlib/seaborn, Apache Jmeter)
+\item Participated in round-table discussions with management, providing
+      guidance related to cultural change, planning and priorities
+\item Hosted weekly training sessions for Ops staff, and interested
+      developers, covering topics such as configuration management, centralized
+      logging, and monitoring
+\item Contributed to an Ops-maintained single-source-of-truth Django application,
+      implementing a test suite and runner, automatic deployment and local
+      development helpers (Python, py.test, Capistrano, Hubot)
+\item Introduced ChatOps via fully automated and consistent deployment and
+      automated testing of several applications (Slack, Hubot, Jenkins)
+\item Setup a centralized logging service for web and mail logs (Logstash,
+      Elasticsearch, Kibana)
+\item Instituted a new workflow for configuration management activities, and
+      designed a ground-up reimplementation using modern best
+      practices, including automatic monitoring of nodes and services and
+      unit/acceptance testing (Puppet, PuppetDB, Ruby, Hiera, Nagios, RSpec,
+      Beaker, Docker)
+\item Provisioned high-availability Cassandra and Elasticsearch clusters
+\end{itemize}
+\end{small}
+}
+
+\cventry{2012--2015}{Sr. Systems Engineer}{Leapfrog Online}{Evanston, IL}{%
 {Responsible for monitoring, maintaining and improving the system performance,
 reliability and security of business-critical, customer-facing infrastructure.}
 
@@ -147,15 +177,17 @@ reliability and security of business-critical, customer-facing infrastructure.}
       party Puppet modules, custom parser functions, providers and facts, using
       modern best practices (Puppet, Hiera, Ruby, PuppetDB, rspec-puppet,
       Beaker, Make)
+\item Developed a lightweight Puppet dashboard replacement that included an
+      API endpoint for monitoring and other custom capabilities (Python,
+      Flask, YAML, JSON)
+\item Fully automated the reproducible build-out of a disaster recovery
+      environment (Packer, Ansible, Puppet, Python)
 \item Wrote helper scripts to automate local Puppet development tasks, such as:
   \begin{itemize}
     \item Unit and acceptance testing
     \item Catalog diff'ing of local changes vs. the most recently applied catalog
     \item Full-context rendering of individual file resource templates
   \end{itemize}
-\item Developed a lightweight Puppet dashboard replacement that included an
-      API endpoint for monitoring and other custom capabilities (Python,
-      Flask, YAML, JSON)
 \item Shepherded a custom instance of GitHub's Hubot, used heavily for
       automated deployments, Nagios management and alerting, orchestration of
       routine system upgrades and much more (Coffeescript, NodeJS, Ansible)
@@ -163,8 +195,6 @@ reliability and security of business-critical, customer-facing infrastructure.}
       with BIND automation, providing a self-service workflow based on
       standard application deployment procedures (Python, YAML, Git,
       Capistrano, Jenkins, BIND)
-\item Fully automated the reproducible build-out of a disaster recovery
-      environment (Packer, Ansible, Puppet, Python)
 \item Managed a Nagios instance with approximately 1800 service checks against
       more than 150 hosts, filled gaps in monitoring by writing custom plugins
       and improved alert messaging to facilitate incident response
@@ -178,9 +208,6 @@ reliability and security of business-critical, customer-facing infrastructure.}
 \end{itemize}
 \end{small}
 }
-\newpage
-\vspace{10ex}
-\cvsection{Professional Experience (continued)}
 
 \cventry{2005--2012}{System Administrator}{Parity Systems}{Evanston, IL}{%
 {Responsible for the installation, configuration, maintenance and documentation
@@ -223,8 +250,8 @@ in support of software (web) development projects.}
        which were used in several internal development projects.
 \item Developed an MS Office 2010 conversion service, with a Python xmlrpclib
       front-end, to convert office documents into open formats.
-\item Wrote and maintained a collection of Python utility modules for common
-      system tasks.
+% \item Wrote and maintained a collection of Python utility modules for common
+%       system tasks.
 \end{itemize}
 \end{small}
 }
@@ -234,8 +261,8 @@ in support of software (web) development projects.}
 \begin{itemize}
 \item Researched, recommended and purchased new technology for the entire
       organization
-\item Supervised the development e-commerce websites used by both wholesale and
-      retail clients; contributing code to integrate with a payment gateway
+\item Supervised the development of e-commerce websites used by both wholesale
+      and retail clients; contributing code to integrate with a payment gateway
       service
 \item Cooperated in planning and oversight for the construction of a
       second location, including the design and installation of combined network
@@ -258,9 +285,9 @@ in support of software (web) development projects.}
 \end{small}
 }
 
-\cvsection{Recent Training}
-{\textit{Statistics for Ops: Making Sense Out of Data}}\hfill {\small{LISA Conference 2014}} \\
-{\textit{R for Sysadmins}}\hfill {\small{LISA Conference 2014}} \\
-{\textit{Python for Data Analysis}}\hfill {\small{PyCon 2013}} \\
+% \cvsection{Recent Training}
+% {\textit{Statistics for Ops: Making Sense Out of Data}}\hfill {\small{LISA Conference 2014}} \\
+% {\textit{R for Sysadmins}}\hfill {\small{LISA Conference 2014}} \\
+% {\textit{Python for Data Analysis}}\hfill {\small{PyCon 2013}} \\
 
 \end{document}
