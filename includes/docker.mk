@@ -1,14 +1,14 @@
 include $(dir $(lastword $(MAKEFILE_LIST)))common.mk
 
 # docker
-DOCKER_VERSION ?= 1.6.1
+DOCKER_VERSION ?= 1.11.2
 DOCKER_URL ?= \
-	https://get.docker.com/builds/$(OS_NAME)/$(OS_ARCH)/docker-$(DOCKER_VERSION)
+	https://get.docker.com/builds/$(OS_NAME)/$(OS_ARCH)/docker-$(DOCKER_VERSION).tgz
 
 # docker-machine
-DOCKER_MACHINE_VERSION ?= v0.2.0
+DOCKER_MACHINE_VERSION ?= v0.7.0
 DOCKER_MACHINE_URL ?= \
-	https://github.com/docker/machine/releases/download/$(DOCKER_MACHINE_VERSION)/docker-machine_$(call _lower,$(OS_NAME))-$(OS_CPU)
+	https://github.com/docker/machine/releases/download/$(DOCKER_MACHINE_VERSION)/docker-machine-$(OS_NAME)-$(OS_ARCH)
 
 DOCKER_MACHINE_HOSTNAME ?= whatever
 
@@ -31,7 +31,7 @@ DOCKER_COMPOSE = $(BIN)/docker-compose
 
 $(BIN)/docker: | $(BIN)
 	@echo "=====> downloading docker-$(DOCKER_VERSION)"
-	curl -o $@ -s -L '$(DOCKER_URL)'
+	curl -s -L '$(DOCKER_URL)' | tar -C $(BIN) --strip-components 1 -xvf - docker/docker
 	@chmod +x $@ && touch $@
 
 $(BIN)/docker-machine: | $(BIN)
@@ -46,7 +46,7 @@ $(BIN)/docker-compose: | $(BIN)
 
 $(B2D_ISO): $(BIN)/docker-machine
 	@echo "=====> creating docker-machine instance ($(DOCKER_MACHINE_HOSTNAME))"
-	$(DOCKER_MACHINE) create --driver virtualbox $(DOCKER_MACHINE_HOSTNAME)
+	$(DOCKER_MACHINE) create --driver virtualbox $(DOCKER_MACHINE_HOSTNAME) || true
 
 #> downloads docker
 docker: $(BIN)/docker
@@ -55,7 +55,7 @@ docker: $(BIN)/docker
 #> sets up a local docker virtual machine
 docker-machine: $(B2D_ISO)
 	@echo "=====> starting local docker virtual machine"
-	$(DOCKER_MACHINE) start $(DOCKER_MACHINE_HOSTNAME)
+	$(DOCKER_MACHINE) start $(DOCKER_MACHINE_HOSTNAME) || true
 .PHONY: docker-machine
 
 #> downloads docker-compose
