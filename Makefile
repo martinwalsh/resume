@@ -1,37 +1,47 @@
-DOCKER_BINDIR := vendor
-DOCKER_MACHINE_HOSTNAME := resume
+include .makefiles/ludicrous.mk
+include .makefiles/docker.mk
 
-include includes/help.mk
-include includes/docker.mk
 
 #> creates transient directories for build artifacts
-vendor build:
-	@echo "=====> create the $@ directory"
+build:
+	$(call log,create the $@ directory)
 	mkdir -p $@
+.PHONY: build
 
-#> renders the given tex document in pdf format
-%.tex: docker-build | build
-	@echo "=====> building $(call _textopdf,$@) from $@"
-	$(DOCKER) run -ti -e SOURCE="$@" \
+
+_pdf2tex = src/$(notdir $(patsubst %.pdf,%.tex,$(1)))
+
+
+#> renders the given pdf document from tex source
+%.pdf: docker.build | build _program_docker
+	$(call log,building $@ from $(call _pdf2tex,$@))
+	$(DOCKER) run -ti -e SOURCE="$(call _pdf2tex,$@)" \
 			--name $(DOCKER_IMAGE_NAME) $(DOCKER_IMAGE_NAME); \
-			$(DOCKER) cp $(DOCKER_IMAGE_NAME):/resume/$(call _textopdf,$@) build/ ; \
+			$(DOCKER) cp $(DOCKER_IMAGE_NAME):/resume/src/$(notdir $@) build/; \
 			$(DOCKER) rm $(DOCKER_IMAGE_NAME) > /dev/null
+
 
 #> builds the default resume
 resume:
-	make src/resume.tex
+	@rm -f build/resume.pdf
+	$(MAKE) --no-print-directory build/resume.pdf
 .PHONY: resume
 
-_entrypoint:
+_docker_entrypoint:
 ifndef SOURCE
 	$(error No source document specified (ex. make $@ SOURCE=src/resume.tex))
 endif
 	cd `dirname $(SOURCE)`; \
 		pdflatex --interaction=nonstopmode `basename $(SOURCE)` || true
-.PHONY: _entrypoint
+.PHONY: _docker_entrypoint
+
+
+#> start a bash shell in the build environment
+shell: docker.debug
+.PHONY: shell
+
 
 #> removes build artifacts
-clean: docker-clean
-	@echo "=====> removing build artifacts"
-	rm -rf vendor
-.PHONY: clean
+clean:: | _program_docker
+	$(call log,removing build artifacts)
+	docker rmi $(DOCKER_IMAGE_NAME)

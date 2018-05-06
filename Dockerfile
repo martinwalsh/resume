@@ -18,4 +18,4 @@ RUN tlmgr install titlesec changepage enumitem \
 ADD . /resume
 WORKDIR /resume
 
-ENTRYPOINT make _entrypoint
+ENTRYPOINT make _docker_entrypoint

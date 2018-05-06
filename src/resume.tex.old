@@ -98,32 +98,51 @@
 \raggedright{%
 \begin{adjustwidth}{}{2em}
   Code-slinging system administrator, DevOps practitioner, and open source
-  enthusiast with more than 15 years experience and a penchant for automating
-  \ldots everything.
+  enthusiast with more than 15 years experience.
   \begin{itemize}
   \item Detail-oriented and dedicated to fulfilling business objectives
   \item Trusted teammate and mentor with a reputation for high productivity
   \item Deep understanding of configuration management practices and rationale
-  \item ChatOps fan and a stickler for operational transparency
-  \item Strong programming background; Python language expert in scripting/automation
+  \item ChatOps fanatic with a penchant for automation
+  \item Strong programming background and Python language expert
   \end{itemize}
 \end{adjustwidth}}
 
-\cvsection{Proficiencies}
-\raggedright{%
-  \begin{tabulary}{\textwidth}{l|L}%
-  \skill{Systems}{RHEL/CentOS, Debian/Ubuntu, Mac~OS~X, Windows}
-  \skill{Services}{Apache, Nginx, HAProxy, Memcached, Redis, RabbitMQ, BIND, Postfix, PuppetDB, Elasticsearch, Consul}
-  \skill{Tools}{Puppet, Hiera, Ansible, Vagrant, Packer, Docker, Git, Make, Capistrano, Jenkins}
-  \skill{Monitoring}{Nagios, Ganglia, Logstash, Graphite, Statsd, Monit, Kibana, Grafana}
-  \skill{Languages}{Python, Ruby, Coffeescript/Javascript, Bash}
-  \end{tabulary}
-}
+% \cvsection{Proficiencies}
+% \raggedright{%
+%   \begin{tabulary}{\textwidth}{l|L}%
+%   \skill{Systems}{Amazon Linux/RHEL/CentOS, Debian/Ubuntu, Mac~OS~X}
+%   \skill{Tools}{Puppet, Hiera, Ansible, Terraform, Vagrant, Packer, Docker, Git, Make, Jenkins}
+%   \skill{Services}{Apache, Nginx, HAProxy, Memcached, Redis, RabbitMQ, BIND, Postfix, Elasticsearch}
+%   \skill{Monitoring}{Nagios, Ganglia, Logstash, Graphite, Statsd, Monit, Kibana, Grafana, Elastic Beats}
+%   \skill{Languages}{Python, Ruby, Coffeescript/Javascript, Bash}
+%   \skill{AWS}{EC2, ECS/ECR, S3, EFS, RDS (MySQL, MariaDB and Aurora), ElastiCache, Redshift, Cloudfront, Route53, CloudWatch, Beanstalk, IAM, VPC}
+%   \end{tabulary}
+% }
 
 % prevents first-level list indentation
 \setlist[itemize]{leftmargin=*}
 
 \cvsection{Professional Experience}
+
+\cventry{2016--2018}{Principal Systems Engineer}{Rocketmiles}{Chicago, IL}{%
+{}
+\begin{small}
+\begin{itemize}
+
+\end{itemize}
+\end{small}
+}
+
+\cventry{2016--2016}{Sr. DevOps Engineer}{Jellyvision}{Chicago, IL}{%
+{}
+\begin{small}
+\begin{itemize}
+\item Established stop-gap redundancy for a highly critical, customer facing, authentication system and the corresponding failover procedure
+\item Identified and contributed improvements to the onboarding procedure for new DevOps engineering hires
+\end{itemize}
+\end{small}
+}
 
 \cventry{2015--2016}{Sr. Systems Engineer}{Wellspring Worldwide}{Chicago, IL}{%
 {}
@@ -258,30 +277,25 @@ in support of software (web) development projects.}
 
 \cventry{2000--2005}{IT Manager}{RS Industrial}{Buford, GA}{%
 \begin{small}
+  {One-man technology team for a national distributor of adhesive products.}
 \begin{itemize}
-\item Researched, recommended and purchased new technology for the entire
-      organization
-\item Supervised the development of e-commerce websites used by both wholesale
-      and retail clients; contributing code to integrate with a payment gateway
-      service
-\item Cooperated in planning and oversight for the construction of a
-      second location, including the design and installation of combined network
-\item Scripted weekly sales reports from disparate data
-      sources, formerly an error prone and lengthy manual process
-\item Combined several common open source tools, to create a voice-call
-      notification system (Nagios, festival text-to-speech, Python, xmlrpclib,
-      pyserial)
-\item Participated in both retail and industrial product launches.
-  \begin{itemize}
-  \item Lead a small team to design product packaging and sales literature.
-  \end{itemize}
-\item Developed several customer service database features, furnishing
-      automation and integration, and providing commonly requested functionality
-      (FileMaker, MS Great PLains).
-\item Introduced open source software to provide network services at a greatly
-      reduced cost (Postfix, Spamassasin, Amavisd, BIND, dhcpd, Hylafax, Samba,
-      cups, Nagios).
+\item Researched, recommended, purchased and implemented new technology for the entire organization
+\item Provided helpdesk support services and training to approximately 30 on-site and remote staff
+\item Supervised the development of e-commerce websites used by wholesale and retail clients
+\item Introduced open source software to provide network services and monitoring at a greatly reduced cost
+\item Developed serveral custom solutions to facilitate routine business operations and eliminate duplicate entry
+\item Automated weekly sales reports from disparate data sources, greatly improving the speed and accuracy of a previously error prone manual process
+\item Implemented a comprehensive infrastructure monitoring system with text-to-speech notifications
 \end{itemize}
+{Technologies:}
+\raggedright{%
+  \begin{tabulary}{\textwidth}{l|L}%
+  \skill{Operating Systems}{Debian, Windows, Mac OS}
+  \skill{Backend/Databases}{MS Great Plains, FileMaker, MS Access}
+  \skill{Network Services}{Microsoft AD, MS Exchange, Postfix, Spamassasin, Amavisd, BIND, dhcpd, Hylafax, Samba, cups, Nagios}
+  \skill{Programming Languages}{Python, Bash, Visual Basic/VBA}
+  \end{tabulary}
+}
 \end{small}
 }
 
