@@ -6,7 +6,7 @@ Linux System Administrator
 
 Thanks for stopping by! Please check out my current resume here_.
 
-.. _here: https://github.com/martinwalsh/resume/blob/master/build/resume.pdf
+.. _here: https://docs.google.com/viewer?url=https://raw.githubusercontent.com/martinwalsh/resume/master/build/resume.pdf
 
 
 Rebuilding

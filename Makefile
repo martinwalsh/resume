@@ -32,7 +32,7 @@ ifndef SOURCE
 	$(error No source document specified (ex. make $@ SOURCE=src/resume.tex))
 endif
 	cd `dirname $(SOURCE)`; \
-		pdflatex --interaction=nonstopmode `basename $(SOURCE)` || true
+		( xelatex `basename $(SOURCE)` && xelatex `basename $(SOURCE)` ) || true
 .PHONY: _docker_entrypoint
 
 
