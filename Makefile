@@ -2,7 +2,6 @@ include .makefiles/ludicrous.mk
 include .makefiles/docker.mk
 
 
-#> creates transient directories for build artifacts
 build:
 	$(call log,create the $@ directory)
 	mkdir -p $@
@@ -12,7 +11,7 @@ build:
 _pdf2tex = src/$(notdir $(patsubst %.pdf,%.tex,$(1)))
 
 
-#> renders the given pdf document from tex source
+#> renders the given pdf document from tex source of the same name
 %.pdf: docker.build | build _program_docker
 	$(call log,building $@ from $(call _pdf2tex,$@))
 	$(DOCKER) run -ti -e SOURCE="$(call _pdf2tex,$@)" \
