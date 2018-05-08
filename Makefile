@@ -12,7 +12,7 @@ _pdf2tex = src/$(notdir $(patsubst %.pdf,%.tex,$(1)))
 
 
 #> renders the given pdf document from tex source of the same name
-%.pdf: docker.build | build _program_docker
+%.pdf: docker-build | build _program_docker
 	$(call log,building $@ from $(call _pdf2tex,$@))
 	$(DOCKER) run -ti -e SOURCE="$(call _pdf2tex,$@)" \
 			--name $(DOCKER_IMAGE_NAME) $(DOCKER_IMAGE_NAME); \
@@ -36,7 +36,7 @@ endif
 
 
 #> start a bash shell in the build environment
-shell: docker.debug
+shell: docker-debug
 .PHONY: shell
 
 
@@ -44,6 +44,7 @@ shell: docker.debug
 commit: resume | _program_git
 	git add build/resume.pdf
 	git commit -am "Updated as of $(shell date +"%Y-%m-%d")"
+.PHONY: commit
 
 
 #> removes build artifacts
