@@ -40,6 +40,12 @@ shell: docker.debug
 .PHONY: shell
 
 
+#> run `make resume` and then `git commit`
+commit: resume | _program_git
+	git add build/resume.pdf
+	git commit -am "Updated as of $(shell date +"%Y-%m-%d")"
+
+
 #> removes build artifacts
 clean:: | _program_docker
 	$(call log,removing build artifacts)
