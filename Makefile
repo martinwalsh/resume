@@ -1,53 +1,32 @@
 include .makefiles/ludicrous.mk
-include .makefiles/docker.mk
+include .makefiles/docker-compose.mk
 
 
-build:
-	$(call log,create the $@ directory)
-	mkdir -p $@
-.PHONY: build
+_run: | build
+	docker-compose run resume
+.PHONY: _run
 
 
-_pdf2tex = src/$(notdir $(patsubst %.pdf,%.tex,$(1)))
+#> start a shell session
+shell: | _program_docker-compose
+	docker-compose exec resume /bin/bash 2>/dev/null || docker-compose run resume /bin/bash
 
 
-#> renders the given pdf document from tex source of the same name
-%.pdf: docker-build | build _program_docker
-	$(call log,building $@ from $(call _pdf2tex,$@))
-	$(DOCKER) run -ti -e SOURCE="$(call _pdf2tex,$@)" \
-			--name $(DOCKER_IMAGE_NAME) $(DOCKER_IMAGE_NAME); \
-			$(DOCKER) cp $(DOCKER_IMAGE_NAME):/resume/src/$(notdir $@) build/; \
-			$(DOCKER) rm $(DOCKER_IMAGE_NAME) > /dev/null
+#> open the default resume
+open:
+	open build/resume.pdf
 
 
 #> builds the default resume
-resume:
-	@rm -f build/resume.pdf
-	$(MAKE) --no-print-directory build/resume.pdf
+resume: export SOURCE := src/resume.tex
+resume: | _run
 .PHONY: resume
 
-_docker_entrypoint:
-ifndef SOURCE
-	$(error No source document specified (ex. make $@ SOURCE=src/resume.tex))
-endif
-	cd `dirname $(SOURCE)`; \
-		( xelatex `basename $(SOURCE)` && xelatex `basename $(SOURCE)` ) || true
-.PHONY: _docker_entrypoint
-
-
-#> start a bash shell in the build environment
-shell: docker-debug
-.PHONY: shell
-
-
-#> run `make resume` and then `git commit`
-commit: resume | _program_git
-	git add build/resume.pdf
-	git commit -am "Updated as of $(shell date +"%Y-%m-%d")"
-.PHONY: commit
-
-
-#> removes build artifacts
-clean:: | _program_docker
-	$(call log,removing build artifacts)
-	docker rmi $(DOCKER_IMAGE_NAME)
+_resume: SHELL := /bin/bash
+_resume: | _var_SOURCE
+	( cd `dirname $(SOURCE)`; \
+		( xelatex `basename $(SOURCE)` && xelatex `basename $(SOURCE)` ) \
+	) && \
+	( mv -v $(patsubst %.tex,%.pdf,$(SOURCE)) build/ && \
+		rm -fv $(patsubst %.tex,%,$(SOURCE)).{aux,log,out} ) || true
+.PHONY: _resume

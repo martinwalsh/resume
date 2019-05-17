@@ -18,8 +18,9 @@ LUDICROUS_DOWNLOAD_URL := https://raw.githubusercontent.com/martinwalsh/ludicrou
 HELP_PROGRAM := $(INCLUDES_DIR)/help.awk
 
 #> displays this message
+help: _HELP_F := $(firstword $(MAKEFILE_LIST))
 help: | _program_awk
-	@awk -f $(HELP_PROGRAM) $(MAKEFILE_LIST)
+	@awk -f $(HELP_PROGRAM) $(wordlist 2,$(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)) $(_HELP_F)  # always prefer help from the top-level makefile
 .PHONY: help
 
 .DEFAULT_GOAL := help
@@ -74,6 +75,10 @@ define _log
 echo "$(if $(LOG_PREFIX),$(LOG_PREFIX) )$(1)"
 endef
 
+define _warn
+echo "$(if $(LOG_PREFIX),$(LOG_PREFIX) )$(1)"
+endef
+
 define _error
 echo "$(if $(LOG_PREFIX),$(LOG_PREFIX) )$(1)"
 endef
@@ -82,6 +87,10 @@ else
 
 define _log
 $(TPUT_PREFIX); echo "$(if $(LOG_PREFIX),$(LOG_PREFIX) )$(1)"; $(TPUT_SUFFIX)
+endef
+
+define _warn
+$(TPUT_PREFIX); $(TPUT_YELLOW); echo "$(if $(LOG_PREFIX),$(LOG_PREFIX) )$(1)"; $(TPUT_SUFFIX)
 endef
 
 define _error
@@ -149,13 +158,17 @@ OS_CPU  := $(if $(findstring 64,$(OS_ARCH)),amd64,x86)
 endif
 
 # Install ludicrous plugins by include directive
-PLUGIN_TARGETS := $(INCLUDES_DIR)/%.mk $(patsubst /%/,%,$(subst $(CURDIR),,$(INCLUDES_DIR)))/%.mk
+PLUGIN_TARGETS := $(abspath $(INCLUDES_DIR)/%.mk) $(subst $(CURDIR)/,,$(abspath $(INCLUDES_DIR)/%.mk))
 
+ifneq (B,$(findstring B,$(MAKEFLAGS)))
 $(PLUGIN_TARGETS):
-	@[ -f $@ ] || \
-		( \
-			$(call _log,downloading $@); \
-			STATUS="$$($(call download_to,$(LUDICROUS_DOWNLOAD_URL)/$(notdir $@),$@))"; \
-				 if [ $$STATUS -ne 200 ]; then $(call _error,plugin $@ not found.); exit 1; fi \
-		)
-
+	@[ ! -f $@ ] && \
+	( \
+		$(call _log,downloading ludicrous plugin to $@); \
+		STATUS="$$($(call download_to,$(LUDICROUS_DOWNLOAD_URL)/$(notdir $@),$@))"; \
+			 if [ $$STATUS -ne 200 ]; then $(call _error,ludicrous plugin $(notdir $@) not found.); exit 1; fi \
+	)
+else
+$(PLUGIN_TARGETS):
+	@:
+endif

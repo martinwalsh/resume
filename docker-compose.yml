@@ -1,0 +1,7 @@
+version: '3'
+services:
+  resume:
+    build: './'
+    volumes:
+      - './:/resume'
+    command: make _resume SOURCE=${SOURCE-src/resume.tex}
